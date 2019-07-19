@@ -41,11 +41,26 @@ export default class App extends React.Component {
                     </Text>
                 </View>
 
-                <View style={styles.button}>
-                    <Button title="Selecionar Imagem" onPress={this.handleChoosePhoto} />
-                </View>
+                {!photo &&
+                    <View style={styles.button}>
+                        <Button title="Selecionar Imagem" onPress={this.handleChoosePhoto} />
+                    </View>
+                }
 
-                {photo && (<Image source={{ uri: photo.uri }} style={{ width: 300, height: 300 }} />)}
+                {photo &&
+                    <View>
+                        <Image source={{ uri: photo.uri }} style={styles.image} />
+
+                        <View style={styles.buttonSend}>
+                            <View style={styles.buttonLeft}>
+                                <Button title="Selecionar outra Imagem" onPress={this.handleChoosePhoto} />
+                            </View>
+                            <View>
+                                <Button title="Enviar" />
+                            </View>
+                        </View>
+                    </View>
+                }
             </View>
         );
     }
@@ -59,11 +74,25 @@ const styles = StyleSheet.create({
     textMenu: {
         textAlign: 'center',
         fontSize: 30,
-        marginTop: 24
+        marginTop: 25
     },
     button: {
         marginTop: 50,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    image: {
+        marginTop: 25,
+        marginLeft: '12%',
+        width: 300,
+        height: 300
+    },
+    buttonSend: {
+        marginTop: 30,
+        marginLeft: '14%',
+        flexDirection: 'row'
+    },
+    buttonLeft: {
+        marginRight: '5%'
     }
 });
