@@ -56,7 +56,7 @@ export default class App extends React.Component {
                                 <Button title="Selecionar outra Imagem" onPress={this.handleChoosePhoto} />
                             </View>
                             <View>
-                                <Button title="Enviar" />
+                                <Button title="Enviar" onPress={() => this.props.navigation.navigate('Result', {})} />
                             </View>
                         </View>
                     </View>
