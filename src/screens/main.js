@@ -71,7 +71,7 @@ export default class App extends React.Component {
                     {this.state.photo &&
                         <View>
                             <View style={styles.positionCenter}>
-                                <Image source={{ uri: this.state.photo.uri }} style={styles.image} />
+                                <Image source={{ uri: this.state.photo.uri }} resizeMode='contain' style={styles.image} />
                             </View>
 
                             <View style={styles.buttonSend}>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         height: 300
     },
     button: {
-        marginTop: '15%',
+        marginTop: '50%',
         justifyContent: 'center',
         alignItems: 'center'
     },
