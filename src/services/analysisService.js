@@ -3,7 +3,8 @@ import axios from 'axios';
 class AnalysisService {
     async postAnalyseImage(image) {
         try {
-            return await axios.post('CAMINHO PARA O BACK-END', {
+            return await axios.post('http://6190ab4f.ngrok.io', {
+                //Precisa pegar no fileName da imagem a extensão da foto
                 'type': 'jpg',
                 'image': image,
             })

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-    StyleSheet, Image, View
-} from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 import { Button, Text } from 'galio-framework';
 import Spinner from 'react-native-spinkit';
 import ImagePicker from 'react-native-image-picker';
@@ -33,15 +31,21 @@ export default class App extends React.Component {
         });
     };
 
-    callAnalyse = () => {
+    callAnalyse = async () => {
         this.setState({ loading: true });
 
-        /* AnalysisService.postAnalyseImage(photo.uri)
+        AnalysisService.postAnalyseImage(this.state.photo.data)
             .then(response => {
                 this.setState({ photo: null, loading: false });
-                this.props.navigation.navigate('Result', { });
-            }) */
-    }
+
+                var metadataResponse = "";
+                response.data.map(value => {
+                    metadataResponse = metadataResponse.concat(value.metadata)
+                })
+
+                this.props.navigation.navigate('Result', { metadata: metadataResponse });
+            })
+    };
 
     render() {
         if (this.state.loading === true) {
@@ -55,7 +59,7 @@ export default class App extends React.Component {
             return (
                 <View style={styles.container}>
                     <View>
-                        <Text h4 style={styles.textMenu}>
+                        <Text h3 style={styles.textMenu}>
                             Analisador de Imagens Modificadas
                         </Text>
                     </View>
