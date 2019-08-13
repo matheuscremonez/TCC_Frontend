@@ -39,11 +39,13 @@ export default class App extends React.Component {
                 this.setState({ photo: null, loading: false });
 
                 var metadataResponse = "";
+                var deepLearningResponse = "";
                 response.data.map(value => {
-                    metadataResponse = metadataResponse.concat(value.metadata)
+                    metadataResponse = metadataResponse.concat(value.metadata);
+                    deepLearningResponse = deepLearningResponse.concat(value.deepLearning);
                 })
 
-                this.props.navigation.navigate('Result', { metadata: metadataResponse });
+                this.props.navigation.navigate('Result', { metadata: metadataResponse, deepLearning: deepLearningResponse });
             })
     };
 
