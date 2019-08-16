@@ -15,14 +15,14 @@ export default class App extends React.Component {
     };
 
     handleChoosePhoto = () => {
-        //Configuração para retirar algum dado que se obtem ao selecionar a foto
+        /* Configuração para retirar algum dado que se obtem ao selecionar a foto */
         const options = {};
 
         ImagePicker.launchImageLibrary(options, response => {
 
             if (response.uri) {
-                //Debug
-                console.log('response', response);
+                /* Debug */
+                //console.log('response', response);
 
                 this.setState({ photo: response });
             } else if (response.error) {
@@ -34,7 +34,9 @@ export default class App extends React.Component {
     callAnalyse = async () => {
         this.setState({ loading: true });
 
-        AnalysisService.postAnalyseImage(this.state.photo.data)
+        var type = this.state.photo.fileName.split('.');
+
+        AnalysisService.postAnalyseImage(this.state.photo.data, type[type.length - 1])
             .then(response => {
                 this.setState({ photo: null, loading: false });
 
