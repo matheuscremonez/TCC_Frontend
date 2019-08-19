@@ -16,7 +16,7 @@ export default class App extends React.Component {
                     <Text h4 style={styles.textResult}>
                         Editado em: {metadata}
                     </Text>
-                    <Text h4 style={[(deepLearning == 'Verdadeira') ? styles.green : styles.red, styles.textResult]}>
+                    <Text h4 style={[(deepLearning == 'Verdadeiro') ? styles.green : styles.red, styles.textResult]}>
                         {deepLearning}
                     </Text>
                 </View>
@@ -28,7 +28,7 @@ export default class App extends React.Component {
                     <Text h3 style={styles.textResult}>
                         Resultado Análise:
                     </Text>
-                    <Text h4 style={[(deepLearning == 'Verdadeira') ? styles.green : styles.red, styles.textResult2]}>
+                    <Text h4 style={[(deepLearning == 'Verdadeiro') ? styles.green : styles.red, styles.textResult2]}>
                         {deepLearning}
                     </Text>
                 </View>
