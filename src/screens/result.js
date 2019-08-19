@@ -10,10 +10,10 @@ export default class App extends React.Component {
         if (metadata.length > 0) {
             return (
                 <View style={styles.container}>
-                    <Text h3 style={styles.textResult}>
+                    <Text h3 style={[styles.textResult, styles.black]}>
                         Resultado Análise:
                     </Text>
-                    <Text h4 style={styles.textResult}>
+                    <Text h4 style={[styles.textResult, styles.black]}>
                         Editado em: {metadata}
                     </Text>
                     <Text h4 style={[(deepLearning == 'Verdadeiro') ? styles.green : styles.red, styles.textResult]}>
@@ -25,7 +25,7 @@ export default class App extends React.Component {
         else {
             return (
                 <View style={styles.container}>
-                    <Text h3 style={styles.textResult}>
+                    <Text h3 style={[styles.textResult, styles.black]}>
                         Resultado Análise:
                     </Text>
                     <Text h4 style={[(deepLearning == 'Verdadeiro') ? styles.green : styles.red, styles.textResult2]}>
@@ -55,5 +55,8 @@ const styles = StyleSheet.create({
     },
     red: {
         color: '#ff0000'
+    },
+    black: {
+        color: '#000000'
     }
 });

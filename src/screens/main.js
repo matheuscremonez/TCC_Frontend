@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
     },
     textMenu: {
         textAlign: 'center',
-        marginTop: '7%'
+        marginTop: '7%',
+        color: '#000000'
     },
     positionCenter: {
         justifyContent: 'center',

@@ -3,7 +3,7 @@ import axios from 'axios';
 class AnalysisService {
     async postAnalyseImage(image, type) {
         try {
-            return await axios.post('http://87e77cf0.ngrok.io', {
+            return await axios.post('http://7fcb6f1c.ngrok.io', {
                 'type': type,
                 'image': image,
             })
