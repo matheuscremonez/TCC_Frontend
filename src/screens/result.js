@@ -8,19 +8,33 @@ export default class App extends React.Component {
         const deepLearning = this.props.navigation.getParam('deepLearning', 'NO-ID');
 
         if (metadata.length > 0) {
-            return (
-                <View style={styles.container}>
-                    <Text h3 style={[styles.textResult, styles.black]}>
-                        Resultado Análise:
-                    </Text>
-                    <Text h4 style={[styles.textResult, styles.black]}>
-                        Editado em: {metadata}
-                    </Text>
-                    <Text h4 style={[(deepLearning == 'Verdadeiro') ? styles.green : styles.red, styles.textResult]}>
-                        {deepLearning}
-                    </Text>
-                </View>
-            );
+            if (deepLearning == 'Verdadeiro') {
+                return (
+                    <View style={styles.container}>
+                        <Text h3 style={[styles.textResult, styles.black]}>
+                            Resultado Análise:
+                        </Text>
+                        <Text h4 style={[styles.green, styles.textResult]}>
+                            {deepLearning}
+                        </Text>
+                    </View>
+                );
+            }
+            else {
+                return (
+                    <View style={styles.container}>
+                        <Text h3 style={[styles.textResult, styles.black]}>
+                            Resultado Análise:
+                        </Text>
+                        <Text h4 style={[styles.textResult, styles.black]}>
+                            Editado em: {metadata}
+                        </Text>
+                        <Text h4 style={[styles.red, styles.textResult]}>
+                            {deepLearning}
+                        </Text>
+                    </View>
+                );
+            }
         }
         else {
             return (
